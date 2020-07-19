@@ -1,5 +1,25 @@
+# PyCharm
+.idea
+
+# Environments
 .env
-.idea/
-.venv/
+.venv
 
+# Cache
+__pycache__
 
+# MacOS
+.DS_Store
+
+# Coverage
+.coverage
+static/coverage_report/
+
+# Pytest
+.pytest_cache
+
+# mypy
+.mypy_cache
+
+# vscode
+settings.json
