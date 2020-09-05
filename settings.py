@@ -1,5 +1,5 @@
 import os
-
+import urllib.parse
 from decouple import config
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -16,8 +16,10 @@ class Settings:
         }
 
     class Mongo:
+        username = urllib.parse.quote_plus(config("MONGO_USERNAME"))
+        password = urllib.parse.quote_plus(config("MONGO_PASSWORD"))
         MONGO_CREDENTIALS = {
-            "STRING_CONN": config("MONGO_CONN_STRING"),
+            "STRING_CONN": config("MONGO_CONN_STRING").format(username, password),
             "DATABASE": config("MONGO_DB"),
             "COLLECTION": config("MONGO_COLLECTION")
         }

@@ -3,7 +3,8 @@
 
 # Environments
 .env
-.venv
+.venv/
+env/
 
 # Cache
 __pycache__
