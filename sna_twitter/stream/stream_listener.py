@@ -8,4 +8,7 @@ class StreamListener:
     def stream_tweets(self, track, languages=None):
         if languages is None:
             languages = ["en"]
-        self.stream.filter(languages=languages, track=track)
+            try:
+                self.stream.filter(languages=languages, track=track)
+            except Exception as e:
+                print(e)
