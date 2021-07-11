@@ -2,19 +2,19 @@ import json
 
 from tweepy import StreamListener
 
-from sna_twitter.common.mongo import MongoCli
+from sna_twitter.infrastructure.repository.Mongo.mongo_repository import MongoRepository
 
 
 class StreamHandler(StreamListener):
     def __init__(self):
         super().__init__()
-        self._mongo = MongoCli()
+        self._mongo = MongoRepository()
 
     def on_data(self, raw_data):
         self._mongo.insert_document(json.loads(raw_data))
 
     def on_error(self, status_code):
-        if status_code == 420:
+        if status_code == status_code:
             print("Status error 420 received")
             return True
         else:

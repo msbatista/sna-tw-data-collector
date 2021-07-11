@@ -1,10 +1,10 @@
 from datetime import datetime as dt
 
 from pymongo import MongoClient
-from settings import Settings
+from sna_twitter.settings import Settings
 
 
-class MongoCli:
+class MongoRepository:
     def __init__(self):
         self._client = MongoClient(Settings.MONGO_CREDENTIALS["STRING_CONN"])
         self._db = Settings.MONGO_CREDENTIALS["DATABASE"]
