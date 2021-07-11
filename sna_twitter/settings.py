@@ -16,8 +16,10 @@ class Settings:
     }
 
     MONGO_CREDENTIALS = {
-        "STRING_CONN": config("MONGO_CONN_STRING").format(urllib.parse.quote_plus(config("MONGO_USERNAME")),
-                                                          urllib.parse.quote_plus(config("MONGO_PASSWORD"))),
-        "DATABASE": config("MONGO_DB"),
+        "CONNECTION_STRING": config("MONGO_CONNECTION_STRING").format(
+            urllib.parse.quote_plus(config("MONGO_USERNAME")),
+            urllib.parse.quote_plus(config("MONGO_PASSWORD"))
+        ),
+        "DATABASE": config("MONGO_DATABASE"),
         "COLLECTION": config("MONGO_COLLECTION")
     }

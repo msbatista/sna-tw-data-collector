@@ -5,10 +5,10 @@ from sna_twitter.settings import Settings
 
 
 class MongoRepository:
-    def __init__(self):
-        self._client = MongoClient(Settings.MONGO_CREDENTIALS["STRING_CONN"])
-        self._db = Settings.MONGO_CREDENTIALS["DATABASE"]
-        self._collection = Settings.MONGO_CREDENTIALS["COLLECTION"]
+    def __init__(self, connection_string: str, database: str, collection: str):
+        self._client = MongoClient(connection_string)
+        self._db = database
+        self._collection = collection
 
     def bulk_import(self, collection):
         try:
@@ -18,7 +18,7 @@ class MongoRepository:
 
     def insert_document(self, document):
         try:
-            print("Document Id: ", document["id"], " Created at: ", dt.now())
+            print("[{0}]: Id={1}".format(dt.now(), document["id"]))
             return self._client[self._db][self._collection].insert_one(document=document)
         except Exception as e:
             print(e)
