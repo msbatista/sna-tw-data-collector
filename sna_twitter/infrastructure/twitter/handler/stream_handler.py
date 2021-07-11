@@ -2,7 +2,7 @@ import json
 
 from tweepy import StreamListener
 
-from sna_twitter.infrastructure.repository.Mongo.mongo_repository import MongoRepository
+from sna_twitter.infrastructure.repository.mongo.mongo_repository import MongoRepository
 from sna_twitter.settings import Settings
 
 

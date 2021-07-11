@@ -1,7 +1,7 @@
 BASE_DIR := ./
 PKG_NAME := sna-tw-data-collector
 SRC_DIR := $(BASE_DIR)/$(PKG_NAME)
-APP_NAME := alpine-tw-data-collector
+APP_NAME := sna-tw-data-collector
 
 venv:
 	@python3 -m venv .venv
@@ -16,7 +16,7 @@ setup:
 
 docker_build:
 	@echo "Building docker image"
-	@docker build -t alpine-tw-data-collector .
+	@docker build -t $(APP_NAME) .
 
 docker_run:
 	@echo "Starting up docker app"
